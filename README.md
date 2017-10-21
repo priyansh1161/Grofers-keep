@@ -1,4 +1,6 @@
 # GROFER'S KEEP
+[![Build Status](https://travis-ci.org/priyansh1161/Grofers-keep.svg?branch=master)](https://travis-ci.org/priyansh1161/Grofers-keep)
+[![Coverage Status](https://coveralls.io/repos/github/priyansh1161/Grofers-keep/badge.svg)](https://coveralls.io/github/priyansh1161/Grofers-keep)
 
 live [link](https://urlshrt.herokuapp.com/)
 

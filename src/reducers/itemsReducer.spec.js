@@ -49,4 +49,11 @@ describe('Reducers: itemReducer', () => {
     expected[id].marked = !expected[id].marked;
     expect(actual).toEqual(expected);
   });
+  it('should not handle anything', () => {
+    const action = {
+      type: '__UNKNOWN__',
+    };
+    const actual = itemReducer(initialState, action);
+    expect(actual).toEqual(initialState);
+  });
 });

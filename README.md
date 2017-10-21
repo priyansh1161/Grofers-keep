@@ -13,6 +13,17 @@
 - [x] As a user, I should be able to use this app on mobile phones as well.
 - [x] As a user, I should be able to use this app without internet as well. Scenario: I am roaming around in the super market and my 3g connection is not working, I should be able to use the app still.  
 
+
+# tools and libs used
+
+- **React**
+- **Redux** - For global state management 
+- **redux-localstorage** - For syncing Redux's state with localStorage
+- **Offline-plugin** - Webpack's Offline Plugin is used to inject SW and Appcache in production env to support offline users
+- **Bootstrap 3.3.7** - For basic styling
+- **Jyest + Enzyme** - Testing
+
+
 # How to Run
 
     npm start
@@ -21,3 +32,7 @@
 
     npm run build
     
+# Run tests & coverage
+
+    npm run test
+    npm run open:cover

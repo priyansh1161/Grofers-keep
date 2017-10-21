@@ -1,9 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-
-import * as actions from '../actions/items';
 
 class AddItem extends React.Component {
   constructor(props) {
@@ -22,7 +18,7 @@ class AddItem extends React.Component {
   onSubmit(e) {
     e.preventDefault();
     const { itemName: name, itemQty: qty, itemUnit: unit } = this.state;
-    this.props.actions.addItem({ name, qty, unit });
+    this.props.addItem({ name, qty, unit });
   }
   render() {
     return (
@@ -82,17 +78,9 @@ class AddItem extends React.Component {
 }
 
 AddItem.propTypes = {
-  actions: PropTypes.object.isRequired,
+  addItem: PropTypes.func.isRequired,
 };
 
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(actions, dispatch)
-  };
-}
 
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(AddItem);
+export default AddItem;

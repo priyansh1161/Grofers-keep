@@ -4,44 +4,55 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 import * as actions from '../actions/items';
-import AddItem from './AddItem';
-import ListItem from '../components/ListItem';
+import AddItem from '../components/AddItem';
+import MainTable from './mainTable';
+
+import '../styles/main.css';
 
 class HomePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: props.items,
+      isListEmpty: props.isListEmpty,
+      addingMoreItems: false,
     };
+    this.addItem = this.addItem.bind(this);
   }
-  componentWillReceiveProps({ items }) {
-    if(this.state.items !== items)
-      this.setState({ items });
+  // So that we get add items as soon as there are no items in the list
+  componentWillReceiveProps({ isListEmpty }) {
+    if(this.state.isListEmpty !== isListEmpty)
+      this.setState({ isListEmpty });
+  }
+  addItem({ name, qty, unit }) {
+    this.props.actions.addItem({ name, qty, unit });
+    this.setState({addingMoreItems: false});
   }
   render() {
-    const { items } = this.state;
-    let main;
-    if(!items.length) {
-      main = <small className="text-muted"> Please Add items to get started</small>;
-    } else {
-      main = items.map((item, index) => {
-        return <ListItem item={item}
-                         remove={this.props.actions.removeItem.bind(this, index)}
-                         mark={this.props.actions.toggleMark.bind(this, index)}
-                         key={index}
-        />;
-      });
+    const { isListEmpty, addingMoreItems } = this.state;
+    let showAddItems = addingMoreItems;
+    if(isListEmpty) {
+      showAddItems = true;
     }
     return (
       <div className="container">
         <div className="row">
           <h2 className="text-center">Grofer's Keep</h2>
-          <h3 className="text-center text-muted"> [[Grosery List]] </h3>
+          <h5 className="text-center text-muted"> [[Grocery List]] </h5>
         </div>
         <div className="row">
-          <AddItem />
+          <MainTable />
         </div>
-        {main}
+        <div className="row">
+          {
+            showAddItems ? <AddItem addItem={this.addItem}/> : <div className="add-more">
+            <button
+              onClick={() => this.setState({addingMoreItems: true})}
+            >
+              Add More Items...
+            </button>
+          </div>
+          }
+        </div>
       </div>
     );
   }
@@ -49,12 +60,12 @@ class HomePage extends React.Component {
 
 HomePage.propTypes = {
   actions: PropTypes.object.isRequired,
-  items: PropTypes.array.isRequired,
+  isListEmpty: PropTypes.bool.isRequired,
 };
 
 function mapStateToProps(state) {
   return {
-    items: state.items,
+    isListEmpty: !state.items.length,
   };
 }
 

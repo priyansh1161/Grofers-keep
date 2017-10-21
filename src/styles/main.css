@@ -1,0 +1,13 @@
+.add-more {
+  text-align: center;
+  padding: 15px;
+}
+.add-more button {
+  border: 1px solid black;
+  background-color: transparent;
+  font-size: 1.2em;
+  padding: 1rem;
+}
+.add-more button:hover {
+  background-color: whitesmoke;
+}

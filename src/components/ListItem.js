@@ -1,25 +1,25 @@
 import React from 'react';
-import Proptypes from 'prop-types';
+import PropTypes from 'prop-types';
+
+import '../styles/listItem.css';
+
 
 const ListItem = ({ item, mark, remove }) => {
   const { name, qty, marked, unit } = item;
   return (
-    <div className="row">
-      <div className="col">
-        <input type="checkbox" onChange={mark} checked={marked}/>
-        {`${name} ${qty} ${unit}`}
-      </div>
-      <div className="pull-right">
-        <button className="btn btn-danger" onClick={remove}>Remove</button>
-      </div>
-    </div>
+    <tr>
+      <td><input type="checkbox" onChange={mark} checked={marked}/></td>
+      <td className={marked ? 'strike-through' : ''}>{qty} <strong>{unit}</strong></td>
+      <td className={marked ? 'strike-through' : ''}>{name}</td>
+      <td><button className="trash-btn" onClick={remove}><span className="glyphicon glyphicon-trash" /></button></td>
+    </tr>
   );
 };
 
 ListItem.propTypes = {
-  mark: Proptypes.func.isRequired,
-  remove: Proptypes.func.isRequired,
-  item: Proptypes.shape({ name : Proptypes.string, qty: Proptypes.string, marked: Proptypes.bool }).isRequired,
+  mark: PropTypes.func.isRequired,
+  remove: PropTypes.func.isRequired,
+  item: PropTypes.shape({ name : PropTypes.string, qty: PropTypes.string, marked: PropTypes.bool }).isRequired,
 };
 
 export default ListItem;

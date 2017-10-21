@@ -1,0 +1,10 @@
+.trash-btn {
+  border: none;
+  background-color: transparent;
+  color: red;
+  font-size: 1.5em;
+}
+
+.strike-through {
+  text-decoration: line-through;
+}

@@ -2,7 +2,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Switch , Route } from 'react-router-dom';
-import NotFoundPage from './NotFoundPage';
 import HomePage from '../containers/Home';
 // This is a class-based component because the current
 // version of hot reloading won't hot reload a stateless
@@ -10,11 +9,11 @@ import HomePage from '../containers/Home';
 
 class App extends React.Component {
   render() {
+    // run homepage at any route
     return (
       <div>
         <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route component={NotFoundPage} />
+          <Route component={HomePage} />
         </Switch>
       </div>
     );

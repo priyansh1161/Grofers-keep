@@ -23,6 +23,7 @@
 - **Bootstrap 3.3.7** - For basic styling
 - **Jyest + Enzyme** - Testing
 
+*[link](https://github.com/coryhouse/react-slingshot) to boilerplate used*
 
 # How to Run
 

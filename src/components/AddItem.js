@@ -34,7 +34,6 @@ class AddItem extends React.Component {
                  name="itemName"
                  onChange={this.changeHandler}
                  required
-
           />
         </div>
         <div className="form-group row">
@@ -42,7 +41,8 @@ class AddItem extends React.Component {
               <label htmlFor="item-qty">Quantity</label>
               <input type="number"
                      className="form-control form-control-lg"
-                     id="item-qty" aria-describedby="item qty"
+                     id="item-qty"
+                     aria-describedby="item qty"
                      placeholder="eg: 1"
                      name="itemQty"
                      value={this.state.itemQty}
@@ -68,8 +68,7 @@ class AddItem extends React.Component {
               </select>
           </div>
         </div>
-        <button
-          type="submit" className="btn btn-primary">Submit</button>
+        <input type="submit" className="btn btn-primary">Submit</input>
       </form>
     );
   }

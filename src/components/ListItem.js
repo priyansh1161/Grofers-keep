@@ -19,7 +19,12 @@ const ListItem = ({ item, mark, remove }) => {
 ListItem.propTypes = {
   mark: PropTypes.func.isRequired,
   remove: PropTypes.func.isRequired,
-  item: PropTypes.shape({ name : PropTypes.string, qty: PropTypes.string, marked: PropTypes.bool }).isRequired,
+  item: PropTypes.shape({
+    name : PropTypes.string,
+    qty: PropTypes.number,
+    unit: PropTypes.string,
+    marked: PropTypes.bool
+  }).isRequired,
 };
 
 export default ListItem;

@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import * as actions from '../actions/items';
+import * as actions from '../actions/itemsAction';
 import AddItem from '../components/AddItem';
-import MainTable from './mainTable';
+import MainTable from './MainTable';
 
 import '../styles/main.css';
 
-class HomePage extends React.Component {
+export class HomePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

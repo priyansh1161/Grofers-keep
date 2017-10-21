@@ -4,11 +4,11 @@ import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
 import ListItem from '../components/ListItem';
 
-import * as actions from '../actions/items';
+import * as actions from '../actions/itemsAction';
 
 import '../styles/listItem.css';
 
-class MainTable extends React.Component {
+export class MainTable extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

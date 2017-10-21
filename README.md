@@ -14,7 +14,7 @@
 - [x] As a user, I should be able to use this app without internet as well. Scenario: I am roaming around in the super market and my 3g connection is not working, I should be able to use the app still.  
 
 
-# tools and libs used
+# Tools and libs used
 
 - **React**
 - **Redux** - For global state management 

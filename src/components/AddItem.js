@@ -22,7 +22,7 @@ class AddItem extends React.Component {
   }
   render() {
     return (
-      <form onSubmit={this.onSubmit}>
+      <form className="container" onSubmit={this.onSubmit}>
         <div className="form-group">
           <label htmlFor="item-field">Name</label>
           <input type="text"
@@ -37,9 +37,8 @@ class AddItem extends React.Component {
 
           />
         </div>
-        <div className="form-group">
-          <div className="row">
-            <div className="col-sm-7">
+        <div className="form-group row">
+            <div className="col-sm-7 col-xs-12">
               <label htmlFor="item-qty">Quantity</label>
               <input type="number"
                      className="form-control form-control-lg"
@@ -51,7 +50,7 @@ class AddItem extends React.Component {
                      required
               />
             </div>
-            <div className="col-sm-5">
+            <div className="col-sm-5 col-xs-12">
               <label htmlFor="item-unit">Unit</label>
               <select
                 className="form-control"
@@ -67,7 +66,6 @@ class AddItem extends React.Component {
                 <option>piece</option>
                 <option>dozen</option>
               </select>
-            </div>
           </div>
         </div>
         <button

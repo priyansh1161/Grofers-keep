@@ -6,7 +6,7 @@ class AddItem extends React.Component {
     super(props);
     this.state = {
       itemName: '',
-      itemQty: '',
+      itemQty: 1,
       itemUnit: 'Unit',
     };
     this.changeHandler = this.changeHandler.bind(this);
@@ -18,7 +18,7 @@ class AddItem extends React.Component {
   onSubmit(e) {
     e.preventDefault();
     const { itemName: name, itemQty: qty, itemUnit: unit } = this.state;
-    this.props.addItem({ name, qty, unit });
+    this.props.addItem({ name, qty : parseFloat(qty), unit });
   }
   render() {
     return (
@@ -43,7 +43,7 @@ class AddItem extends React.Component {
               <input type="number"
                      className="form-control form-control-lg"
                      id="item-qty" aria-describedby="item qty"
-                     placeholder="eg: 1kg"
+                     placeholder="eg: 1"
                      name="itemQty"
                      value={this.state.itemQty}
                      onChange={this.changeHandler}
